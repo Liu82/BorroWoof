@@ -1,0 +1,46 @@
+
+{
+    "name": "Cliff",
+    "zipcode": "98115",
+    "email": "Cliff83@yahoo.com",
+    "passoword": "password",
+    "bookings": [
+        {
+            "bookingID":"123456",
+            "petOwnerID":"789101",
+            "petId":"246835",
+            "explorerId":"369121",
+            "date":"07/07/2019"
+        },
+        {
+            "bookingID":"987654",
+            "petOwnerID":"543216",
+            "petID":"678954",
+            "explorerId":"456789",
+            "date": "07/15/2019"
+        },
+        {   "bookingID":"234567",
+            "petOwnerID":"345678",
+            "petID":"654321",
+            "explorerId":"765432",
+            "date":"07/22/2019"
+        }
+    ],
+    
+    "dog": {
+        "name": "Fluffy",
+      "breed": "Pitbull",
+        "zipcode": "98125",
+        "temperment": "energetic",
+        "availibility": {
+            "monday":false,
+            "tuesday":false,
+            "wednesday":false,
+            "thursday":false,
+            "friday":false,
+            "saturday":true,
+            "sunday":true
+        }
+        
+    }}
+    
