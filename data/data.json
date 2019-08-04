@@ -3,7 +3,7 @@
     "name": "Cliff",
     "zipcode": "98115",
     "email": "Cliff83@yahoo.com",
-    "passoword": "password",
+    "password": "password",
     "bookings": [
         {
             "bookingID":"123456",
@@ -31,8 +31,8 @@
         "name": "Fluffy",
       "breed": "Pitbull",
         "zipcode": "98125",
-        "temperment": "energetic",
-        "availibility": {
+        "temperament": "energetic",
+        "availability": {
             "monday":false,
             "tuesday":false,
             "wednesday":false,

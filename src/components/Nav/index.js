@@ -1,23 +1,35 @@
-import React from "react";
-import "./style.css";
 
-// class Nav extends Component{
-//     render(){
-//         return(
-//             <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2">
-//             <button
-//               onClick={this.toggleNav}
-//               className="navbar-toggler"
-//               data-toggle="collapse"
-//               data-target="#navbarNav"
-//               aria-controls="navbarNav"
-//               aria-expanded="false"
-//               aria-label="Toggle navigation"
-//             >
-//                <span className="navbar-toggler-icon" />
-//         </button>  
-//         )
-//     }
-// }
+import "./style.css";
+import React, { Component } from 'react'
+import { Menu, Segment } from 'semantic-ui-react';
+
+class Nav extends Component {
+  state = { activeItem: 'home' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    const { activeItem } = this.state
+
+    return (
+      <Segment inverted>
+        <Menu inverted secondary>
+          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item
+            name='messages'
+            active={activeItem === 'messages'}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            name='friends'
+            active={activeItem === 'friends'}
+            onClick={this.handleItemClick}
+          />
+        </Menu>
+      </Segment>
+
+    )
+  }
+}
 
 export default Nav;
