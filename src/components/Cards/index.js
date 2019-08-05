@@ -1,26 +1,33 @@
-import React from "react";
-import { Card, Icon, Image } from 'semantic-ui-react'
+import React, { Component } from "react";
+import { Card, Button, Icon, Image } from 'semantic-ui-react'
 import "./style.css";
 
-const Cards = () => (
-    <Card>
-      <Image src='https://getyourpet.com/wp-content/uploads/2019/01/pitbull-in-chicago-yard.jpg' wrapped ui={false} />
-      <Card.Content>
-        <Card.Header>Matthew</Card.Header>
-        <Card.Meta>
-          <span className='date'>Joined in 2015</span>
-        </Card.Meta>
-        <Card.Description>
-          Matthew is a musician living in Nashville.
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <a>
-          <Icon name='user' />
-          22 Friends
-        </a>
-      </Card.Content>
-    </Card>
-  )
+class Cards extends Component {
 
+  render() {
+    return (
+
+      <Card.Group>
+        {this.props.dogs.map(dog => {
+          return <Card className>
+            <Image src={dog.image} wrapped ui={false} />
+            <Card.Content>
+              <Card.Header>{dog.name}</Card.Header>
+              <Card.Meta>
+                <span className='date'>{dog.breed}</span>
+              </Card.Meta>
+              <Card.Description>
+                {dog.about}
+              </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <Button icon basic color="blue"><Icon name="paw" />BOOK</Button>
+            </Card.Content>
+          </Card>
+        })}
+      </Card.Group>
+
+    )
+  }
+}
 export default Cards;
