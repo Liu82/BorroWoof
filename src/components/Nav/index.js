@@ -37,7 +37,9 @@ import {
 
 
 class DesktopContainer extends Component {
-    state = {}
+    state = {
+      isLoggedIn: false
+    }
   
     hideFixedMenu = () => this.setState({ fixed: false })
     showFixedMenu = () => this.setState({ fixed: true })
@@ -66,8 +68,8 @@ class DesktopContainer extends Component {
                 size='large'
               >
                 <Container className ="Navbar">
-                <Menu.Item as='a' style={{fontSize:'35px'}}>
-                BorroWoof
+                <Menu.Item as='a' style={{fontSize:'35px'}}><a href='/'>
+              BorroWoof</a>
                   </Menu.Item>
                   <Menu.Item as='a'>How it works.</Menu.Item>
                   <Menu.Item position='right'>
@@ -119,8 +121,8 @@ class DesktopContainer extends Component {
             vertical
             visible={sidebarOpened}
           >
-            <Menu.Item as='a' active>
-              BorroWoof
+            <Menu.Item as='a' active><a href='/'>
+              BorroWoof</a>
             </Menu.Item>
             <Menu.Item as='a'>How it works</Menu.Item>
             <Menu.Item as='a'>Log in</Menu.Item>
@@ -140,12 +142,8 @@ class DesktopContainer extends Component {
                     <Icon name='sidebar' />
                   </Menu.Item>
                   <Menu.Item position='right'>
-                    <Button as='a' inverted>
-                      Log in
-                    </Button>
-                    <Button as='a' inverted style={{ marginLeft: '0.5em' }}>
-                      Sign Up
-                    </Button>
+                  <Modal modalType="Register"/>
+                    <Modal modalType="Login"/>
                   </Menu.Item>
                 </Menu>
               </Container>

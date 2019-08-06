@@ -1,11 +1,16 @@
-import React from 'react'
-import { Item } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Item } from 'semantic-ui-react';
+import Footer from "../components/Footer";
+import Nav from "../components/Nav";
 
 const description = [
   '.',
 ].join(' ')
 
-const ItemExampleDescriptions = () => (
+class UserPage extends Component {
+  render() {
+    return <div>
+      <Nav />
   <Item.Group>
     <Item>
       <Item.Image size='large' src="https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/06/12/104525039-_Y2A6611.600x400.JPG?v=1497302639" wrapped ui={false} />
@@ -26,6 +31,9 @@ const ItemExampleDescriptions = () => (
     </Item>
 
  </Item.Group>
-)
+ <Footer />
+    </div>
+  }
+}
 
-export default ItemExampleDescriptions
+export default UserPage
