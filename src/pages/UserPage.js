@@ -1,38 +1,64 @@
 import React, { Component } from 'react';
-import { Item } from 'semantic-ui-react';
+import { Item, Button, Icon } from 'semantic-ui-react';
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
+import Modal from '../components/Modal';
+import "./style.css";
 
-const description = [
-  '.',
-].join(' ')
 
 class UserPage extends Component {
+  state = {
+    name:'',
+    email:'',
+    zipcode:'',
+    isLoggedIn: false
+  }
+
+  //loads the user info from the register page
+  componentDidMount(){
+    var userInfo = this.props.history.location.state;
+    console.log(userInfo)
+    if(userInfo){
+      this.setState({
+        name: userInfo.name,
+        email: userInfo.email,
+        aboutMe: userInfo.aboutMe,
+        isLoggedIn: true
+      })
+    }
+  }
+
   render() {
+
     return <div>
       <Nav />
-  <Item.Group>
-    <Item>
-      <Item.Image size='large' src="https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/06/12/104525039-_Y2A6611.600x400.JPG?v=1497302639" wrapped ui={false} />
 
+      {this.state.isLoggedIn ? 
+        <Item.Group>
+          <Item>
+            {/* <Item.Image size='large' src="https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/06/12/104525039-_Y2A6611.600x400.JPG?v=1497302639" wrapped ui={false} /> */}
+            {/* <Button primary icon style={{ height: "5vh", width: "10vw" }}>
+                          Have a Dog? <Icon name='right chevron' />
+                      </Button> */}
 
-      <Item.Content>
-        <Item.Header as='a'>Clifford Perez</Item.Header>
-        <Item.Description>
-          <p>{description}</p>
-          <p>Dale! Do it! I love Pitbulls.<br></br> <br></br>
-          t is a long established fact that a reader will be distracted by the readable <br></br> 
-          content of a page when looking at its layout. The point of using Lorem Ipsum <br></br>
-          is that it has a more-or-less normal distribution of letters, as opposed to <br></br>
-          using 'Content here, content here', making it look like readable English.<br></br> 
-      </p>
-        </Item.Description>
-      </Item.Content>
-    </Item>
+            <Modal className="dogButton" modalType="Have a dog?" />
+                  
+            <Item.Content>
+              <Item.Header>Name:  <br/><br/>{this.state.name}</Item.Header>
+              <br/>
+              <h4>Contact Information:  <br/><br/>{this.state.email}</h4>
+              <Item.Description>
+              <p>About Me: <br/>
+              {this.state.aboutMe}</p>
+              </Item.Description>
+            </Item.Content>
+          </Item>
 
- </Item.Group>
- <Footer />
-    </div>
+        </Item.Group>
+      : <h1> Signin or Sign up first </h1>
+      }
+       <Footer />
+     </div>
   }
 }
 
