@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, Form, Icon, Modal, Grid, Header, Message, Segment, Input, TextArea } from 'semantic-ui-react'
 import axios from 'axios';
 import { Redirect } from 'react-router';
-import ImageUpload from '../ImageUpload/ImageUpload';
+
 import "./style.css"
 
 
@@ -15,7 +15,7 @@ class RegisterModal extends Component {
             name: '',
             email: '',
             password: '',
-            zipcode: '',
+             zipcode: '',
             aboutMe: '',
             redirect: false
         };
@@ -87,7 +87,7 @@ class RegisterModal extends Component {
                             />
 
                          
-                         <ImageUpload/>
+                   
                          
                          <Button onClick={this.onRegisterClick} color='black' fluid size='large'>
                                 Sign Up

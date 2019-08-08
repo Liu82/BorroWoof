@@ -14,6 +14,11 @@ const dogs = [
         breed: "Pit",
         about: "I'm an asshole",
         image: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        
+    
+    
+    
+    
     },
     {
         name: "Kaizer",
