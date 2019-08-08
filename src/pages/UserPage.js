@@ -57,6 +57,9 @@ class UserPage extends Component {
         </Item.Group>
       : <h1> Signin or Sign up first </h1>
       }
+       
+      
+       
        <Footer />
      </div>
   }

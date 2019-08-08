@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@app-masters/react-cloudinary-uploader": "^0.1.41",
     "axios": "^0.19.0",
+    "cloudinary-react": "^1.1.4",
     "history": "^4.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

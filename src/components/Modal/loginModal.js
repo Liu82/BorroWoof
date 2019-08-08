@@ -71,11 +71,14 @@ class LoginModal extends Component {
                         </Form>
                         {/* <Message>
                             New to us? <a href='#'>Sign Up</a>
-                        </Message> */}
+                        <</Message> */}
+                         <br></br>
+                       
                     </Grid.Column>
                 </Grid>
             </Modal.Content >)
         }
     }
+   
 
 export default LoginModal

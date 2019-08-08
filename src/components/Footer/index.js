@@ -9,6 +9,7 @@ import {
 import "./style.css";
 
 
+
 class Footer extends Component {
   render() {
     return (
@@ -24,4 +25,8 @@ class Footer extends Component {
     )
   }
 }
+
+
+
+
 export default Footer;

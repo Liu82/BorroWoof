@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
+
 // import Jumbotron from "../components/Jumbotron";
 import Modal from "../components/Modal";
 import Cards from "../components/Cards";

@@ -3,6 +3,8 @@ import { Item } from 'semantic-ui-react';
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 
+
+
 const description = [
   '.',
 ].join(' ')
@@ -35,4 +37,6 @@ class DogPage extends Component {
     </div>
   }
 }
+
+
 export default DogPage

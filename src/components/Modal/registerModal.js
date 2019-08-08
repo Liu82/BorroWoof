@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Button, Form, Icon, Modal, Grid, Header, Image, Message, Segment, Input, TextArea } from 'semantic-ui-react'
+import { Button, Form, Icon, Modal, Grid, Header, Message, Segment, Input, TextArea } from 'semantic-ui-react'
 import axios from 'axios';
-import { Redirect } from 'react-router'
-
+import { Redirect } from 'react-router';
+import ImageUpload from '../ImageUpload/ImageUpload';
 import "./style.css"
 
 
@@ -86,8 +86,10 @@ class RegisterModal extends Component {
                             onChange={this.handleChange}
                             />
 
-
-                            <Button onClick={this.onRegisterClick} color='black' fluid size='large'>
+                         
+                         <ImageUpload/>
+                         
+                         <Button onClick={this.onRegisterClick} color='black' fluid size='large'>
                                 Sign Up
                     </Button>
                         </Segment>
@@ -98,6 +100,7 @@ class RegisterModal extends Component {
                     {/* <Modal.Actions >
                         <NestedModal />
                     </Modal.Actions> */}
+                 
                 </Grid.Column>
             </Grid>
         </Modal.Content>)
@@ -106,4 +109,6 @@ class RegisterModal extends Component {
 
 }
 
-export default RegisterModal
+
+
+export default RegisterModal;
