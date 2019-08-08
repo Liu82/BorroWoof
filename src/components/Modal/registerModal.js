@@ -1,9 +1,56 @@
-import React, { Component } from 'react'
-import { Button, Form, Icon, Modal, Grid, Header, Image, Message, Segment, Input, TextArea } from 'semantic-ui-react'
+import React, { Component, useState } from 'react'
+import { Button, Form, Modal, Grid, Header, Segment, TextArea } from 'semantic-ui-react'
 import axios from 'axios';
 import { Redirect } from 'react-router'
 
+
 import "./style.css"
+
+
+function App() {
+    const [image, setImage] = useState('')
+    const [loading, setLoading] = useState(false)
+
+    const uploadImage = async e => {
+        const files = e.target.files
+        const data = new FormData()
+        data.append('file', files[0])
+        data.append('upload_present', 'n4ckgjus')
+        setLoading(true)
+        const res = await fetch(
+            'https://api.cloudinary.com/v1_1/borrowof/image/upload',
+            {
+                method: 'POST',
+                body: 'data'
+            }
+        )
+        const file = await res.json()
+
+        setImage(file.secure_url)
+        setLoading(false)
+    }
+
+    return (
+        <div>
+            <h1>Upload Image</h1>
+            <input
+                type="file"
+                name="file"
+                placeholder="Upload an Image"
+                onChange={uploadImage}
+            />
+            {loading ? (
+                <h3>Loading....</h3>
+            ) : (
+                    <img src={image} style={{ width: '300px' }} />
+                )}
+        </div>
+    )
+}
+
+
+
+
 
 
 class RegisterModal extends Component {
@@ -78,12 +125,12 @@ class RegisterModal extends Component {
                                 onChange={this.handleChange}
                             />
 
-                            <Form.Field 
-                            control={TextArea} 
-                            label='About Me'
-                            id="aboutMe" 
-                            placeholder='Tell us more about you...'
-                            onChange={this.handleChange}
+                            <Form.Field
+                                control={TextArea}
+                                label='About Me'
+                                id="aboutMe"
+                                placeholder='Tell us more about you...'
+                                onChange={this.handleChange}
                             />
 
 

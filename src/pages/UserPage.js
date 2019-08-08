@@ -44,6 +44,7 @@ class UserPage extends Component {
             <Modal className="dogButton" modalType="Have a dog?" />
                   
             <Item.Content>
+              
               <Item.Header>Name:  <br/><br/>{this.state.name}</Item.Header>
               <br/>
               <h4>Contact Information:  <br/><br/>{this.state.email}</h4>
@@ -55,7 +56,7 @@ class UserPage extends Component {
           </Item>
 
         </Item.Group>
-      : <h1> Signin or Sign up first </h1>
+      : <h1> Sign-in or Sign up first </h1>
       }
        <Footer />
      </div>
