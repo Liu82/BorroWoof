@@ -107,7 +107,7 @@ class DogModal extends Component {
     // }
 
     render() {
-        if (this.state.redirect) return <Redirect to={{ pathname: '/dog', state: this.state }} />;
+        if (this.state.redirect) return <Redirect to={{ pathname: '/user', state: this.state }} />;
         else return(
             <Form>
                 <h1 style={{ textAlign: "center" }}>Dog Form</h1>
