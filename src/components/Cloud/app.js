@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Spinner from './spinner'
-import Images from './image'
+
+
 import Buttons from './button'
 
 

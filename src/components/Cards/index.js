@@ -8,11 +8,7 @@ class Cards extends Component {
   state = { dogs: [] }
 
   componentDidMount() {
-<<<<<<< HEAD
-    axios.get("http://https://borrowoof.herokuapp/", this.state)
-=======
     axios.get("https://borrowoofapi.herokuapp.com/api/dog", this.state)
->>>>>>> 9b16c6d2ac771ecddb9dde9ab79144c285f35bac
       .then(res => {
         console.log(res.data)
         this.setState({ dogs: res.data })

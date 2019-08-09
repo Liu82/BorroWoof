@@ -82,7 +82,8 @@ class UserPage extends Component {
               </Item.Description>
             </Item.Content>
           </Item>
-          <Card className>
+          
+          {this.state.dogs.length != 0 ? <Card className>
             <Image src={this.state.dogs[0].image} />
             <Card.Content>
               <Card.Header>Name: {this.state.dogs[0].name}</Card.Header>
@@ -113,7 +114,8 @@ class UserPage extends Component {
             <Card.Content extra>
               <Button icon basic color="blue"><Icon name="paw" />DELETE</Button>
             </Card.Content>
-          </Card>
+          </Card> : ''}
+          
         </Item.Group>
         : <h1> Sign-in or Sign up first </h1>
       }
