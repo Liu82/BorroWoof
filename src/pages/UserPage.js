@@ -24,7 +24,7 @@ class UserPage extends Component {
   componentDidMount() {
     var userInfo = this.props.history.location.state;
     console.log(userInfo)
-    axios.get(`http://borrowoofapi/api/dog/${userInfo.ownerId}`, this.state)
+    axios.get(`https://borrowoofapi.herokuapp.com/api/dog/${userInfo.ownerId}`, this.state)
       .then(res => {
         if (userInfo) {
           this.setState({

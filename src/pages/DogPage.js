@@ -11,7 +11,7 @@ class DogPage extends Component {
   state = { dogs: [] }
 
   componentDidMount() {
-    axios.get("http://borrowoofapi/api/dog", this.state)
+    axios.get("https://borrowoofapi.herokuapp.com/api/dog", this.state)
       .then(res => {
         console.log(res.data)
         this.setState({ dogs: res.data })

@@ -92,7 +92,7 @@ class DogModal extends Component {
     }
 
     onRegisterDogClick = (data) => {
-        axios.post("http://borrowoofapi/api/dog", this.state) // https://some_heroku_name_api.heroku.com/api/dog
+        axios.post("https://borrowoofapi.herokuapp.com/api/dog", this.state) // https://some_heroku_name_api.heroku.com/api/dog
             .then(res => {
                 console.log(res.data)
                 this.setState({ redirect: true })

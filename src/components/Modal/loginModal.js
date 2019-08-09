@@ -28,7 +28,7 @@ class LoginModal extends Component {
 
     onLoginClick = (data) => {
         console.log(this.state)
-        axios.post("http://borrowoofapi/api/login",this.state)
+        axios.post("https://borrowoofapi.herokuapp.com/api/login",this.state)
         .then(res =>{
             console.log(res.data)
             this.setState({ 
