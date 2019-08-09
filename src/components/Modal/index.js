@@ -14,7 +14,7 @@ class ModalMultiple extends Component {
 
             {this.props.modalType === `Register` ? <RegisterModal /> : ""}
             {this.props.modalType === `Login` ? <LoginModal/> : ""}
-            {this.props.modalType === `Have a dog?` ? <DogModal/> : ""}
+            {this.props.modalType === `Have a dog?` ? <DogModal ownerId={this.props.ownerId}/> : ""}
 
         </Modal>)
     }

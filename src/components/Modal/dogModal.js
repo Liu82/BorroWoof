@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Button, Form, Modal, Input, TextArea } from 'semantic-ui-react'
+import { Button, Form, Modal, Input, TextArea, Image } from 'semantic-ui-react'
 import axios from 'axios';
+import Cloud from '../Cloud/app'
 import { Redirect } from 'react-router'
 import "./style.css"
 
@@ -17,7 +18,7 @@ class DogModal extends Component {
         super(props);
         this.state = {
             value: '',
-            // ownerId: '',
+            ownerId: this.props.ownerId ? this.props.ownerId : 'noOwner',
             name: '',
             gender: '',
             breed: '',
@@ -33,7 +34,7 @@ class DogModal extends Component {
             availableSaturday:'',
             availableSunday:'',
             aboutMe: '',
-            // image: '',
+            image: '',
             redirect: false
         };
 
@@ -84,8 +85,14 @@ class DogModal extends Component {
         }
     }
 
+    setImage = (images) =>{
+        console.log(images)
+        this.setState({ image: images[0].secure_url })
+
+    }
+
     onRegisterDogClick = (data) => {
-        axios.post("http://localhost:3001/api/dog", this.state)
+        axios.post("http://borrowoofapi/api/dog", this.state) // https://some_heroku_name_api.heroku.com/api/dog
             .then(res => {
                 console.log(res.data)
                 this.setState({ redirect: true })
@@ -100,8 +107,8 @@ class DogModal extends Component {
     // }
 
     render() {
-
-        return (
+        if (this.state.redirect) return <Redirect to={{ pathname: '/dog', state: this.state }} />;
+        else return(
             <Form>
                 <h1 style={{ textAlign: "center" }}>Dog Form</h1>
                 <Form>
@@ -234,6 +241,11 @@ class DogModal extends Component {
                     id="aboutMe" 
                     onChange={this.handleChange}
                     placeholder='Tell us more about your dog...' />
+                     <Image src={this.state.image != '' ? this.state.image  : 'https://wolper.com.au/wp-content/uploads/2017/10/image-placeholder.jpg' } size='small' rounded />
+                            
+                            <Cloud 
+                             onImageUploadCompletion={this.setImage}
+                            />
                 </Form>
                 <Modal.Actions>
                     <Button primary icon='check' content='All Done' onClick={this.onRegisterDogClick} />

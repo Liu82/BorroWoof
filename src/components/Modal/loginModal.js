@@ -14,6 +14,7 @@ class LoginModal extends Component {
             password:'',
             name:'',
             zipcode:'',
+            ownerId:'',
             redirect: false
          };
 
@@ -27,12 +28,16 @@ class LoginModal extends Component {
 
     onLoginClick = (data) => {
         console.log(this.state)
-        axios.post("http://localhost:3001/api/login",this.state)
+        axios.post("http://borrowoofapi/api/login",this.state)
         .then(res =>{
             console.log(res.data)
             this.setState({ 
                 email: res.data.email,
                 name: res.data.name,
+                userId: res.data._id,
+                ownerId: res.data._id,
+                image: res.data.image,
+                about: res.data.about,
                 redirect: true})
         })
         .catch(error =>{
