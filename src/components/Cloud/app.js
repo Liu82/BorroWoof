@@ -26,7 +26,7 @@ export default class App extends Component {
       })
       
       
-      fetch(`http://borrowoofapi/api/image-upload`, {
+      fetch(`https://borrowoofapi.herokuapp.com/api/image-upload`, {
         method: 'POST',
         body: formData
       })

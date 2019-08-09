@@ -38,7 +38,7 @@ class RegisterModal extends Component {
 
     }
     onRegisterClick = (data) => {
-        axios.post("http://borrowoofapi/api/user", this.state)
+        axios.post("https://borrowoofapi.herokuapp.com/api/user", this.state)
             .then(res => {
                 console.log(res.data)
                 this.setState({ redirect: true })
