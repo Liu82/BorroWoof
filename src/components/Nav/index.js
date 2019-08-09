@@ -66,6 +66,7 @@ class DesktopContainer extends Component {
               BorroWoof</a>
                   </Menu.Item>
                   <Menu.Item as='a'>How it works.</Menu.Item>
+                  <Menu.Item as='a'><a href='/findingdog'>Search Dogs</a></Menu.Item>
                   <Menu.Item position='right'>
                     {/* <Button as='a' inverted={!fixed} primary={fixed} style={{ marginRight: '20px' }}>
                       Log in
