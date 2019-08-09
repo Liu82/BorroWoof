@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Nav from "../components/Nav";
 import Cards from "../components/Cards";
 import Footer from "../components/Footer";
-
+// import Cloud from '../cloudinary'
 import "./style.css";
 
 // const dogs = [
@@ -24,6 +24,7 @@ class Home extends Component {
     render() {
         return <div>
             <Nav/>
+            {/* <Cloud/> */}
             <h1 className ="dogHeader">Your Next Playmate</h1>
             <Cards/>
             <Footer/>

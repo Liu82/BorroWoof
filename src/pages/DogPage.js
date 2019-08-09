@@ -11,7 +11,7 @@ class DogPage extends Component {
   state = { dogs: [] }
 
   componentDidMount() {
-    axios.get("http://localhost:3001/api/dog", this.state)
+    axios.get("http://borrowoofapi/api/dog", this.state)
       .then(res => {
         console.log(res.data)
         this.setState({ dogs: res.data })
@@ -29,7 +29,7 @@ class DogPage extends Component {
       <Item.Group>
         {this.state.dogs.map(dog => (
           <Item>
-            <Item.Image size='large' src="https://www.allthingsdogs.com/wp-content/uploads/2018/10/American-Pitbull-Terrier-Sleeping.jpg" wrapped ui={false} />
+            <Item.Image size='large' src={dog.image} wrapped ui={false} />
 
             <Item.Content>
               <Item.Header as='a'>Name: {dog.name}</Item.Header>

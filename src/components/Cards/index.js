@@ -26,14 +26,14 @@ class Cards extends Component {
       <Card.Group>
         {this.state.dogs.map(dog => (
           <Card className>
-            {/* <Image src={dog.image} wrapped ui={false} /> */}
+            <Image src={dog.image}/>
             <Card.Content>
-              <Card.Header>{dog.name}</Card.Header>
+              <Card.Header>Name: {dog.name}</Card.Header>
               <Card.Meta>
-                <span className='date'>{dog.breed}</span>
+                <span className='date'>Breed: {dog.breed}</span>
               </Card.Meta>
               <Card.Description>
-                {dog.aboutMe}
+                About Me: {dog.aboutMe}
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
