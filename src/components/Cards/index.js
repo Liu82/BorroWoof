@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button, Icon, Image, Modal } from 'semantic-ui-react'
+import { Card, Button, Icon, Image } from 'semantic-ui-react'
 import axios from 'axios';
 import "./style.css";
 
@@ -36,11 +36,9 @@ class Cards extends Component {
                 About Me: {dog.aboutMe}
               </Card.Description>
             </Card.Content>
-      <Card.Content extra>
-      <Modal.Actions>
-<Button primary icon='check' content='All Done' onClick={this.onRegisterDogClick} />
-</Modal.Actions>
-     </Card.Content>
+            <Card.Content extra>
+              <Button icon basic color="blue"><Icon name="paw" />BOOK</Button>
+            </Card.Content>
           </Card>
         ))}
       </Card.Group>
@@ -48,6 +46,4 @@ class Cards extends Component {
     )
   }
 }
-
-
-export default Card;
+export default Cards;
