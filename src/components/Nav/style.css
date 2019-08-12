@@ -1,6 +1,10 @@
 .Navbar{
     color: white;
+    text-shadow: 2px 2px black;
 }
 .loginModal{
     text-align: center;
+}
+.titleHeader{
+    font-size: 50px;
 }

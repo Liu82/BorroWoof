@@ -6,7 +6,7 @@ import Filter from '../components/Filter'
 
 
 
-class FindingDog extends Component {
+class SearchDog extends Component {
     render() {
         return <div>
             <Nav />
@@ -15,4 +15,4 @@ class FindingDog extends Component {
         </div>
     }
 }
-export default FindingDog;
+export default SearchDog;

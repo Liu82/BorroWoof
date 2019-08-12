@@ -68,11 +68,11 @@ class DesktopContainer extends Component {
                 size='large'
               >
                 <Container className ="Navbar">
-                <Menu.Item as='a' style={{fontSize:'35px'}}><a href='/'>
+                <Menu.Item as='a' style={{fontSize:'35px'}} className="titleHeader"><a href='/'>
               BorroWoof</a>
                   </Menu.Item>
                   <Menu.Item as='a'>How it works.</Menu.Item>
-                  <Menu.Item as='a'><a href='/findingdog'>Search Dogs</a></Menu.Item>
+                  <Menu.Item as='a'><a href='/searchdog'>Search Dogs</a></Menu.Item>
                   
                   
                     {/* <Button as='a' inverted={!fixed} primary={fixed} style={{ marginRight: '20px' }}>
@@ -135,6 +135,7 @@ class DesktopContainer extends Component {
               BorroWoof</a>
             </Menu.Item>
             <Menu.Item as='a'>How it works</Menu.Item>
+            <Menu.Item as='a'><a href='/searchdog'>Search Dog</a></Menu.Item>
             <Menu.Item as='a'>Log in</Menu.Item>
             <Menu.Item as='a'>Sign Up</Menu.Item>
           </Sidebar>
@@ -151,10 +152,10 @@ class DesktopContainer extends Component {
                   <Menu.Item onClick={this.handleToggle}>
                     <Icon name='sidebar' />
                   </Menu.Item>
-                  <Menu.Item position='right'>
+                  {/* <Menu.Item position='right'>
                   <Modal modalType="Register"/>
                     <Modal modalType="Login"/>
-                  </Menu.Item>
+                  </Menu.Item> */}
                 </Menu>
               </Container>
             </Segment>
