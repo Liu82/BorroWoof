@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import Card from '../components/Cards'
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
+import Filter from '../components/Filter'
 
 
 
 
-class FindingDog extends Component {
+class SearchDog extends Component {
     render() {
         return <div>
             <Nav />
-          <Card/>
+            <Filter/>
           <Footer/>
         </div>
     }
 }
-export default FindingDog;
+export default SearchDog;

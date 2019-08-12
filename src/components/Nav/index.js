@@ -8,6 +8,7 @@ import {
     Segment,
     Sidebar,
     Visibility,
+    Button
   } from 'semantic-ui-react'
   import Modal from '../Modal'
   import "./style.css";
@@ -32,16 +33,21 @@ import {
 
 class DesktopContainer extends Component {
     state = {
-      isLoggedIn: false
+      
     }
   
     hideFixedMenu = () => this.setState({ fixed: false })
     showFixedMenu = () => this.setState({ fixed: true })
-  
+    onLogoutButtonClick = () => {
+      //back to the home page
+      localStorage.clear();
+      window.location.replace('/')
+    }
     render() {
       const { children } = this.props
       const { fixed } = this.state
-  
+      const loggedInName = localStorage.getItem('name')
+      const userToken = localStorage.getItem('userToken')
       return (
         <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
           <Visibility
@@ -62,23 +68,32 @@ class DesktopContainer extends Component {
                 size='large'
               >
                 <Container className ="Navbar">
-                <Menu.Item as='a' style={{fontSize:'35px'}}><a href='/'>
+                <Menu.Item as='a' style={{fontSize:'35px'}} className="titleHeader"><a href='/'>
               BorroWoof</a>
                   </Menu.Item>
                   <Menu.Item as='a'>How it works.</Menu.Item>
-                  <Menu.Item as='a'><a href='/findingdog'>Search Dogs</a></Menu.Item>
-                  <Menu.Item position='right'>
+                  <Menu.Item as='a'><a href='/searchdog'>Search Dogs</a></Menu.Item>
+                  
+                  
                     {/* <Button as='a' inverted={!fixed} primary={fixed} style={{ marginRight: '20px' }}>
                       Log in
                     </Button> */}
-                    <Modal modalType="Register"/>
+               
 
-                    <p style={{padding: "5%", fontSize: "20px"}}> or </p>
-                    <Modal modalType="Login"/>
+                    {!loggedInName ?
+                    <Menu.Item position='right'>
+                      <Modal className ='registerModal' modalType="Register"/>
+                      <p style={{padding: "5%", fontSize: "20px"}}> or </p>
+                    <Modal className ='loginModal' modalType="Login"/></Menu.Item> : 
+                     <Menu.Item position='right'>
+                       <h3 style={{padding: "5%", fontSize: "20px"}}>Hello, {loggedInName}</h3>
+                       <Button onClick={this.onLogoutButtonClick}>Logout</Button>
+                    </Menu.Item> }
+                    
                     {/* <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '20px' }}>
                       Sign Up
                     </Button> */}
-                  </Menu.Item>
+                  
                 </Container>
               </Menu>
             </Segment>
@@ -120,6 +135,7 @@ class DesktopContainer extends Component {
               BorroWoof</a>
             </Menu.Item>
             <Menu.Item as='a'>How it works</Menu.Item>
+            <Menu.Item as='a'><a href='/searchdog'>Search Dog</a></Menu.Item>
             <Menu.Item as='a'>Log in</Menu.Item>
             <Menu.Item as='a'>Sign Up</Menu.Item>
           </Sidebar>
@@ -136,10 +152,10 @@ class DesktopContainer extends Component {
                   <Menu.Item onClick={this.handleToggle}>
                     <Icon name='sidebar' />
                   </Menu.Item>
-                  <Menu.Item position='right'>
+                  {/* <Menu.Item position='right'>
                   <Modal modalType="Register"/>
                     <Modal modalType="Login"/>
-                  </Menu.Item>
+                  </Menu.Item> */}
                 </Menu>
               </Container>
             </Segment>
