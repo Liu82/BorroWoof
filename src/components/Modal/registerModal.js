@@ -19,8 +19,9 @@ class RegisterModal extends Component {
             password: '',
             zipcode: '',
             aboutMe: '',
-            image:'',
-            ownerId:'',
+            image: '',
+            ownerId: '',
+            isLoggedIn: false,
             redirect: false
         };
 
@@ -32,16 +33,45 @@ class RegisterModal extends Component {
         this.setState({ [event.target.id]: event.target.value });
     }
 
-    setImage = (images) =>{
+    setImage = (images) => {
         console.log(images)
         this.setState({ image: images[0].secure_url })
 
     }
     onRegisterClick = (data) => {
-        axios.post("https://borrowoofapi.herokuapp.com/api/user", this.state)
+
+        axios.post("http://localhost:3001/api/signup", this.state,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
             .then(res => {
                 console.log(res.data)
-                this.setState({ redirect: true })
+                const data = {
+                    email: res.data.email,
+                    name: res.data.name,
+                    userId: res.data._id,
+                    ownerId: res.data._id,
+                    image: res.data.image,
+                    about: res.data.about,
+                    token: res.data.token,
+                    isLoggedIn: true,
+                    redirect: true
+
+                }
+                localStorage.setItem('userData', JSON.stringify(data));
+                this.setState({
+                    email: res.data.email,
+                    name: res.data.name,
+                    userId: res.data._id,
+                    ownerId: res.data._id,
+                    image: res.data.image,
+                    about: res.data.about,
+                    token: res.data.token,
+                    isLoggedIn: true,
+                    redirect: true
+                })
             })
             .catch(error => {
                 console.log(error)
@@ -94,12 +124,12 @@ class RegisterModal extends Component {
                                 placeholder='Tell us more about you...'
                                 onChange={this.handleChange}
                             />
-                            <Image src={this.state.image != '' ? this.state.image  : 'https://wolper.com.au/wp-content/uploads/2017/10/image-placeholder.jpg' } size='small' rounded />
-                            
-                            <Cloud 
-                             onImageUploadCompletion={this.setImage}
+                            <Image src={this.state.image != '' ? this.state.image : 'https://wolper.com.au/wp-content/uploads/2017/10/image-placeholder.jpg'} size='small' rounded />
+
+                            <Cloud
+                                onImageUploadCompletion={this.setImage}
                             />
-                            
+
                             <Button onClick={this.onRegisterClick} color='black' fluid size='large'>
                                 Sign Up
                     </Button>

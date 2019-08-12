@@ -92,7 +92,9 @@ class DogModal extends Component {
     }
 
     onRegisterDogClick = (data) => {
-        axios.post("https://borrowoofapi.herokuapp.com/api/dog", this.state) // https://some_heroku_name_api.heroku.com/api/dog
+        console.log(this.state)
+        console.log("Dog Data")
+        axios.post("http://localhost:3001/api/dog", this.state) // https://some_heroku_name_api.heroku.com/api/dog
             .then(res => {
                 console.log(res.data)
                 this.setState({ redirect: true })
@@ -102,16 +104,12 @@ class DogModal extends Component {
             })
     }
 
-    // componentDidMount(){
-    //     console.log(this.state)
-    // }
 
     render() {
         if (this.state.redirect) return <Redirect to={{ pathname: '/user', state: this.state }} />;
         else return(
             <Form>
                 <h1 style={{ textAlign: "center" }}>Dog Form</h1>
-                <Form>
                     <Form.Group widths='equal'>
                         <Form.Field 
                         control={Input} 
@@ -119,8 +117,15 @@ class DogModal extends Component {
                         id="name"
                         onChange={this.handleChange}
                         placeholder='Name' />
+                        <Form.Field 
+                        control={Input} 
+                        label='Breed'
+                        id="breed"
+                        onChange={this.handleChange}
+                        placeholder='Breed'>
+                        </Form.Field>
                     </Form.Group>
-                    <Form.Group grouped>
+                    <Form.Group inline>
                         <label>Gender</label>
                     <Form.Field 
                         label='Male' 
@@ -137,16 +142,7 @@ class DogModal extends Component {
                         onChange={this.handleChange}
                         name='htmlRadios' />
                     </Form.Group>
-                    <Form.Group widths='equal'>
-                        <Form.Field 
-                        control={Input} 
-                        label='Breed'
-                        id="breed"
-                        onChange={this.handleChange}
-                        placeholder='Breed'>
-                        </Form.Field>
-                    </Form.Group>
-                    <Form.Group grouped>
+                    <Form.Group inline>
                         <label>Activity Level</label>
                         <Form.Field 
                         label='Low' 
@@ -170,7 +166,7 @@ class DogModal extends Component {
                         onChange={this.handleChange}
                         name='htmlRadios' />
                     </Form.Group>
-                    <Form.Group grouped>
+                    <Form.Group inline>
                         <label>Good with...?</label>
                         <Form.Field 
                         label='People' 
@@ -191,7 +187,7 @@ class DogModal extends Component {
                         onChange={this.handleChange}
                         type='checkbox' />
                     </Form.Group>
-                    <Form.Group grouped>
+                    <Form.Group inline>
                         <label>Availability</label>
                         <Form.Field 
                         label='Monday' 
@@ -246,10 +242,10 @@ class DogModal extends Component {
                             <Cloud 
                              onImageUploadCompletion={this.setImage}
                             />
-                </Form>
-                <Modal.Actions>
+                                    <Modal.Actions>
                     <Button primary icon='check' content='All Done' onClick={this.onRegisterDogClick} />
                 </Modal.Actions>
+
             </Form>
         )
     }

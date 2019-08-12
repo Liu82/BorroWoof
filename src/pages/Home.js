@@ -1,33 +1,43 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
-import Cards from "../components/Cards";
+import DogCards from "../components/Cards";
 import Footer from "../components/Footer";
-// import Cloud from '../cloudinary'
+import axios from "axios"
+import { Card, Button, Icon, Image } from 'semantic-ui-react'
+
 import "./style.css";
 
-// const dogs = [
-//     {
-//         name: "Nala",
-//         breed: "Pit",
-//         about: "I'm an asshole",
-//         image: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-//     },
-//     {
-//         name: "Kaizer",
-//         breed: "German Shep",
-//         about: "I'm an asshole too",
-//         image: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-//     }
-// ]
-
 class Home extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            dogs: [],
+        }
+    }
+
+
+    componentDidMount() {
+        axios.get("http://localhost:3001/api/dog", this.state)
+            .then(res => {
+                console.log(res.data)
+                this.setState({ dogs: res.data })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     render() {
         return <div>
-            <Nav/>
-            {/* <Cloud/> */}
-            <h1 className ="dogHeader">Your Next Playmate</h1>
-            <Cards/>
-            <Footer/>
+            <Nav />
+            <h1 className="dogHeader">Your Next Playmate</h1>
+            <Card.Group className centered itemsPerRow={4}>
+
+                {this.state.dogs.map((dog, index) => {
+                    return (<DogCards dog={dog} />)
+                })}
+            </Card.Group>
+            <Footer />
         </div>
     }
 }
