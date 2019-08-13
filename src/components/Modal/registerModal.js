@@ -48,26 +48,20 @@ class RegisterModal extends Component {
             })
             .then(res => {
                 console.log(res.data)
-                const data = {
-                    email: res.data.email,
-                    name: res.data.name,
-                    userId: res.data._id,
-                    ownerId: res.data._id,
-                    image: res.data.image,
-                    about: res.data.about,
-                    token: res.data.token,
-                    isLoggedIn: true,
-                    redirect: true
-
-                }
-                localStorage.setItem('userData', JSON.stringify(data));
+                localStorage.setItem('userToken', res.data.token);
+                localStorage.setItem('name', res.data.name);
+                localStorage.setItem('userId', res.data._id)
+                localStorage.setItem('ownerId', res.data._id);
+                localStorage.setItem('image', res.data.image)
+                localStorage.setItem('about', res.data.aboutMe)
+                localStorage.setItem('token', res.data.token);
                 this.setState({
                     email: res.data.email,
                     name: res.data.name,
                     userId: res.data._id,
                     ownerId: res.data._id,
                     image: res.data.image,
-                    about: res.data.about,
+                    about: res.data.aboutMe,
                     token: res.data.token,
                     isLoggedIn: true,
                     redirect: true

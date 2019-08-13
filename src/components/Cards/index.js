@@ -3,7 +3,7 @@ import { Card, Button, Icon, Image } from 'semantic-ui-react'
 import axios from 'axios';
 import { Redirect } from 'react-router'
 import "./style.css";
-
+import {getLocalValues} from '../../Utilities/Helper'
 
 class Cards extends Component {
   constructor(props) {
@@ -16,9 +16,15 @@ class Cards extends Component {
   }
 
   onBookDogClick = (data) => {
-
+    let userInfo = getLocalValues();
     if(this.state.isLoggedIn){
-      axios.post("http://localhost:3001/api/booking", this.props.dog,            {
+      axios.post("http://localhost:3001/api/booking", {
+        petId: this.props.dog._id,
+        ownerId: this.props.dog.ownerId,
+        userId: userInfo.userId,
+        image: this.props.dog.image,
+        name: this.props.dog.name
+      },            {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${this.state.userToken}`
@@ -27,7 +33,8 @@ class Cards extends Component {
       .then(res => {
           console.log(res.data)
           alert('Successfully booked...... ')
-
+          
+          window.location.replace('/user')
           
       })
       .catch(error => {
@@ -56,6 +63,7 @@ render() {
           </Card.Content>
           <Card.Content extra>
             <Button icon basic color="blue" onClick={this.onBookDogClick}><Icon name="paw" />BOOK</Button>
+          
           </Card.Content>
         </Card>
     )
