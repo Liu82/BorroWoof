@@ -10,7 +10,7 @@ import "./style.css"
 class ModalMultiple extends Component {
     render() {
         return (<Modal trigger={<Button>{this.props.modalType}</Button>}>
-            <Modal.Header className='modalHeader'>{this.props.modalType}</Modal.Header>
+            <Modal.Header  className='modalHeader'>{this.props.modalType}</Modal.Header>
 
             {this.props.modalType === `Register` ? <RegisterModal className ='modalForm'/> : ""}
             {this.props.modalType === `Login` ? <LoginModal/> : ""}

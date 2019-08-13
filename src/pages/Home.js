@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import Nav from "../components/Nav";
+import NavTwo from "../components/NavTwo";
 import DogCards from "../components/Cards";
 import Footer from "../components/Footer";
+import Jumbotron from '../components/Jumbotron';
+import SideNav from "../components/SideNav";
+import Content from "../components/Content"
 import axios from "axios"
 import { Card, Button, Icon, Image } from 'semantic-ui-react'
 
@@ -29,14 +32,16 @@ class Home extends Component {
 
     render() {
         return <div>
-            <Nav />
-            <h1 className="dogHeader">Your Next Playmate</h1>
+            <NavTwo />
+            <Jumbotron/>
+            <Content/>
             <Card.Group className centered itemsPerRow={4}>
 
                 {this.state.dogs.map((dog, index) => {
                     return (<DogCards dog={dog} />)
                 })}
             </Card.Group>
+    
             <Footer />
         </div>
     }

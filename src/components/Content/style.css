@@ -1,0 +1,14 @@
+.imagePeople{
+    width: 80%;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: -1px 3px 10px 5px rgba(0, 0, 0, 0.75);
+}
+
+.myDogs{
+    box-shadow: -1px 3px 10px 5px rgba(0, 0, 0, 0.75);
+}
+.searchDog{
+    margin-left: 64%;
+}

@@ -43,7 +43,7 @@ class Cards extends Component {
 
 render() {
     if (this.state.redirect) return <Redirect to={{ pathname: '/user ', state: this.state }} />;
-    else return( <Card className="dogCard">
+    else return( <div className="dogCard"><Card>
           <Image src={this.props.dog.image} />
           <Card.Content>
             <Card.Header>Name: {this.props.dog.name}</Card.Header>
@@ -54,10 +54,11 @@ render() {
               About Me: {this.props.dog.aboutMe}
             </Card.Description>
           </Card.Content>
-          <Card.Content extra>
-            <Button icon basic color="blue" onClick={this.onBookDogClick}><Icon name="paw" />BOOK</Button>
+          <Card.Content extra >
+            <Button className="pawButton" icon basic color="blue" onClick={this.onBookDogClick}><Icon name="paw" />BOOK</Button>
           </Card.Content>
         </Card>
+        </div>
     )
   }
 }

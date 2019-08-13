@@ -55,11 +55,11 @@ class DesktopContainer extends Component {
             onBottomPassed={this.showFixedMenu}
             onBottomPassedReverse={this.hideFixedMenu}
           >
-            <Segment
-              textAlign='center'
-              style={{ minHeight: 700, padding: '1em 0em', backgroundSize: 'cover', backgroundImage: `url(https://images.pexels.com/photos/1633522/pexels-photo-1633522.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)`}}
-              vertical
-            >
+             <Segment
+            inverted
+            textAlign='center'
+            vertical
+          >
               <Menu
                 fixed={fixed ? 'top' : null}
                 inverted={!fixed}
@@ -68,11 +68,10 @@ class DesktopContainer extends Component {
                 size='large'
               >
                 <Container className ="Navbar">
-                <Menu.Item as='a' style={{fontSize:'35px'}} className="titleHeader"><a href='/'>
+                <Menu.Item as='a' className="titleHeader"><a href='/'>
               BorroWoof</a>
                   </Menu.Item>
-                  <Menu.Item as='a'>How it works.</Menu.Item>
-                  <Menu.Item as='a'><a href='/searchdog'>Search Dogs</a></Menu.Item>
+                  <Menu.Item as='a' className="searchTitle"><a href='/searchdog'>Search Dogs</a></Menu.Item>
                   
                   
                     {/* <Button as='a' inverted={!fixed} primary={fixed} style={{ marginRight: '20px' }}>
@@ -134,7 +133,6 @@ class DesktopContainer extends Component {
             <Menu.Item as='a' active><a href='/'>
               BorroWoof</a>
             </Menu.Item>
-            <Menu.Item as='a'>How it works</Menu.Item>
             <Menu.Item as='a'><a href='/searchdog'>Search Dog</a></Menu.Item>
             <Menu.Item as='a'>Log in</Menu.Item>
             <Menu.Item as='a'>Sign Up</Menu.Item>

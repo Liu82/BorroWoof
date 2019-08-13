@@ -1,23 +1,22 @@
-/* .Navbar{
+.Navbar{
     color: white;
     text-shadow: 2px 2px black;
-} */
-/* .loginModal{
+} 
+.loginModal{
     text-align: center;
 }
 .titleHeader{
-    font-size: 50px;
+    font-size: 30px;
     position: relative;
-    Right: 120px;
+    right: 65px;
 }
 .searchTitle{
     font-size: 30px;
     position: relative;
-    bottom: 25px;
-    left: 170px;
+    right: 65px;
 }
 
 .registerModal{
     padding: 150%; 
-} */
+} 
 

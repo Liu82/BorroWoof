@@ -48,6 +48,8 @@ class RegisterModal extends Component {
             })
             .then(res => {
                 console.log(res.data)
+                localStorage.setItem('userToken', res.data.token);
+                localStorage.setItem('name', res.data.name);
                 const data = {
                     email: res.data.email,
                     name: res.data.name,
@@ -58,7 +60,6 @@ class RegisterModal extends Component {
                     token: res.data.token,
                     isLoggedIn: true,
                     redirect: true
-
                 }
                 localStorage.setItem('userData', JSON.stringify(data));
                 this.setState({
@@ -80,13 +81,13 @@ class RegisterModal extends Component {
 
     render() {
         if (this.state.redirect) return <Redirect to={{ pathname: '/user', state: this.state }} />;
-        else return (<Modal.Content image>
-            <Grid textAlign='center' style={{ height: '60vh', width: '100vw', }} verticalAlign='middle'>
+        else return (<Modal.Content   image>
+            <Grid  textAlign='center' style={{ height: '60vh', width: '100vw', }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Header as='h2' color='black' textAlign='center'>
                         Register to your account
                 </Header>
-                    <Form size='large'>
+                    <Form  size='large'>
                         <Segment stacked>
                             <Form.Input
                                 fluid icon='user'

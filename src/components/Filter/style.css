@@ -22,3 +22,9 @@
 .searchDog{
     text-align: center;
 }
+.searchBreed{
+    font-size: 20px;
+}
+.dogFilter{
+    margin: 0% 20% 0% 20%;
+}

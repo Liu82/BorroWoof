@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Footer from "../components/Footer";
-import Nav from "../components/Nav";
-import Filter from '../components/Filter'
+import NavTwo from "../components/NavTwo";
+import Filter from '../components/Filter';
 
 
 
@@ -9,7 +9,7 @@ import Filter from '../components/Filter'
 class SearchDog extends Component {
     render() {
         return <div>
-            <Nav />
+            <NavTwo/>
             <Filter/>
           <Footer/>
         </div>

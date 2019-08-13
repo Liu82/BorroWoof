@@ -1,20 +1,19 @@
 import React, { Component } from "react";
-import { Card, Button, Checkbox, Form, Input, Select } from 'semantic-ui-react'
+import { Card, Button, Checkbox, Form, Input, Select, Icon } from 'semantic-ui-react'
 import DogCards from '../Cards'
 import axios from 'axios'
 import "./style.css";
-import { exportDefaultSpecifier } from "@babel/types";
 
-const options = [
-    { key: 'm', text: 'Male', value: 'male' },
-    { key: 'f', text: 'Female', value: 'female' },
-]
+// const options = [
+//     { key: 'm', text: 'Male', value: 'male' },
+//     { key: 'f', text: 'Female', value: 'female' },
+// ]
 
-const activityLevel = [
-    { key: 'l', text: 'Low', value: 'Low' },
-    { key: 'm', text: 'Medium', value: 'Medium' },
-    { key: 'h', text: 'High', value: 'High' },
-]
+// const activityLevel = [
+//     { key: 'l', text: 'Low', value: 'Low' },
+//     { key: 'm', text: 'Medium', value: 'Medium' },
+//     { key: 'h', text: 'High', value: 'High' },
+// ]
 
 const filterNames = ['availableMonday', 'availableTuesday']
 class FormExampleFieldControl extends Component {
@@ -104,16 +103,16 @@ class FormExampleFieldControl extends Component {
         const { value } = this.state
         return (
             <div>
-                <Form >
+                <Form className="dogFilter">
                     <h1 className="searchDog">Search For Your Prefect Companion</h1>
                     <Form.Group widths='equal'>
-                        <Form.Field control={Input} label='Breed' id='breed' placeholder='Breed' onChange={this.handleChange}
+                        <Form.Field className="searchBreed"control={Input} Input icon='paw' iconPosition='left' label='Breed' id='breed' placeholder='Search Breed...' onChange={this.handleChange}
                         />
-                        <Form.Field control={Select} label='Gender' options={options} placeholder='Gender' />
-                        <Form.Field control={Select} label='Activity Level' options={activityLevel} placeholder='Level' />
+                        {/* <Form.Field control={Select} label='Gender' options={options} placeholder='Gender' />
+                        <Form.Field control={Select} label='Activity Level' options={activityLevel} placeholder='Level' /> */}
 
                     </Form.Group>
-                    <Form.Group inline>
+                    {/* <Form.Group inline>
                         <label>Good with?</label>
                         <Form.Field
                             label='People'
@@ -178,8 +177,8 @@ class FormExampleFieldControl extends Component {
                             id="sunday"
                             onChange={this.handleChange}
                             type='checkbox' />
-                    </Form.Group>
-                    <Form.Field control={Button}>Submit</Form.Field>
+                    </Form.Group> */}
+                    {/* <Form.Field control={Button}>Submit</Form.Field> */}
                 </Form>
                 <Card.Group className centered itemsPerRow={4}>
 
