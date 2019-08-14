@@ -38,7 +38,9 @@ class Home extends Component {
             <Card.Group className centered itemsPerRow={4}>
 
                 {this.state.dogs.map((dog, index) => {
-                    return (<DogCards dog={dog} />)
+                    if(index <4 ){
+                        return (<DogCards dog={dog} />)
+                    }
                 })}
             </Card.Group>
     
