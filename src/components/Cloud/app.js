@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import axios from 'axios'
 
 import Buttons from './button'
 
@@ -19,12 +19,10 @@ export default class App extends Component {
       this.setState({ uploading: true })
       console.log(`dogModal state:`)
       
-      const formData = new FormData()
+      let formData = new FormData()
       
+        formData.append('0', files[0])
       
-      files.forEach((file, i) => {
-        formData.append(i, file)
-      })
       
       fetch(`https://borrowoofapi.herokuapp.com/api/image-upload`, {
       // fetch(`http://localhost:3001/api/image-upload`, {

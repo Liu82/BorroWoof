@@ -83,6 +83,8 @@ class UserPage extends Component {
               <strong>Contact Information: </strong> <br /> {this.state.email}<br /><br />
               <p><strong>About Me: </strong><br />
                   {this.state.about}</p>
+                  {this.state.dogs.length == 0 ? <Modal className='loginModal' modalType="Have a dog?" ownerId={this.state.ownerId} /> : ''}
+
             </Segment>
 
           
@@ -110,12 +112,10 @@ class UserPage extends Component {
                       {this.state.dogs[0].availableFriday ? `${this.state.dogs[0].availableFriday}, ` : ''}
                       {this.state.dogs[0].availableSaturday ? `${this.state.dogs[0].availableSaturday}, ` : ''}
                       {this.state.dogs[0].availableSunday ? this.state.dogs[0].availableSunday : ''}<br /> <br />
-
                     </Segment>
+                    
               </Grid.Column> : ''}
           
-
-          <Item>{this.state.dogs.length == 0 ? <Modal className='loginModal' modalType="Have a dog?" ownerId={this.state.ownerId} /> : ''}</Item>
           <Grid.Row>
             <Grid.Column>
           <Item>
