@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Spinner from './spinner'
-import Images from './image'
+
+
 import Buttons from './button'
 
 
@@ -21,18 +21,19 @@ export default class App extends Component {
       
       const formData = new FormData()
       
+      
       files.forEach((file, i) => {
         formData.append(i, file)
       })
       
-      
-      fetch(`http://localhost:3001/api/image-upload`, {
+      fetch(`https://borrowoofapi.herokuapp.com/api/image-upload`, {
+      // fetch(`http://localhost:3001/api/image-upload`, {
         method: 'POST',
         body: formData
       })
       .then(res => res.json())
       .then(images => {
-        console.log(images)
+        
         this.props.onImageUploadCompletion(images)
         // this.setState({ 
         //   uploading: false,

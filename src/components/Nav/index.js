@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import {
     Container,
@@ -67,6 +66,7 @@ class DesktopContainer extends Component {
                 secondary={!fixed}
                 size='large'
               >
+             
                 <Container className ="Navbar">
                 <Menu.Item as='a' className="titleHeader"><a href='/'>
               BorroWoof</a>

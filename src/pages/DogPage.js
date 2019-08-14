@@ -7,11 +7,18 @@ import "./style.css";
 
 
 
+
+
+const description = [
+  '.',
+].join(' ')
+
+
 class DogPage extends Component {
   state = { dogs: [] }
 
   componentDidMount() {
-    axios.get("http://localhost:3001/api/dog", this.state)
+    axios.get("https://borrowoofapi.herokuapp.com/api/dog", this.state)
       .then(res => {
         console.log(res.data)
         this.setState({ dogs: res.data })
@@ -67,4 +74,6 @@ class DogPage extends Component {
   }
 
 }
+
+
 export default DogPage

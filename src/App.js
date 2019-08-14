@@ -6,6 +6,7 @@ import DogPage from "./pages/DogPage";
 import SearchDog from './pages/SearchDog';
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
+require ('dotenv').config ()
 
 function App() {
   return (

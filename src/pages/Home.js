@@ -20,7 +20,7 @@ class Home extends Component {
 
 
     componentDidMount() {
-        axios.get("http://localhost:3001/api/dog", this.state)
+        axios.get("https://borrowoofapi.herokuapp.com/api/dog", this.state)
             .then(res => {
                 console.log(res.data)
                 this.setState({ dogs: res.data })

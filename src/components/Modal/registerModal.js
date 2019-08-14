@@ -40,7 +40,7 @@ class RegisterModal extends Component {
     }
     onRegisterClick = (data) => {
 
-        axios.post("http://localhost:3001/api/signup", this.state,
+        axios.post("https://borrowoofapi.herokuapp.com/api/signup", this.state,
             {
                 headers: {
                     'Content-Type': 'application/json',
@@ -50,25 +50,19 @@ class RegisterModal extends Component {
                 console.log(res.data)
                 localStorage.setItem('userToken', res.data.token);
                 localStorage.setItem('name', res.data.name);
-                const data = {
-                    email: res.data.email,
-                    name: res.data.name,
-                    userId: res.data._id,
-                    ownerId: res.data._id,
-                    image: res.data.image,
-                    about: res.data.about,
-                    token: res.data.token,
-                    isLoggedIn: true,
-                    redirect: true
-                }
-                localStorage.setItem('userData', JSON.stringify(data));
+                localStorage.setItem('userId', res.data._id)
+                localStorage.setItem('ownerId', res.data._id);
+                localStorage.setItem('email', res.data.email);
+                localStorage.setItem('image', res.data.image)
+                localStorage.setItem('about', res.data.aboutMe)
+                localStorage.setItem('token', res.data.token);
                 this.setState({
                     email: res.data.email,
                     name: res.data.name,
                     userId: res.data._id,
                     ownerId: res.data._id,
                     image: res.data.image,
-                    about: res.data.about,
+                    about: res.data.aboutMe,
                     token: res.data.token,
                     isLoggedIn: true,
                     redirect: true

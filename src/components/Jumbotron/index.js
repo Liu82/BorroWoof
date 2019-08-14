@@ -16,7 +16,8 @@ import {
   Sidebar,
   Visibility,
 } from 'semantic-ui-react'
-import { faItalic } from '@fortawesome/free-solid-svg-icons';
+import logoImage from '../Image/logo.png'
+import './style.css'
 
 
 const Jumbotron = ({ mobile }) => (
@@ -26,9 +27,9 @@ const Jumbotron = ({ mobile }) => (
     vertical
   >
   <Container text>
-    <Header
+  <Image className="img-responsive logo" src={logoImage} alt="logo"/>
+    {/* <Header
       as='h1'
-      content='BorroWoof'
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',
@@ -36,7 +37,7 @@ const Jumbotron = ({ mobile }) => (
         marginBottom: 0,
         marginTop: mobile ? '1.5em' : '3em',
       }}
-    />
+    /> */}
     <Header
       as='h2'
       content='"Dogs are not our whole life, but they make out lives whole."'

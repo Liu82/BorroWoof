@@ -89,7 +89,7 @@ class FormExampleFieldControl extends Component {
     handleClick = (e, { checked }) => this.log('Click', checked)
 
     componentDidMount() {
-        axios.get("http://localhost:3001/api/dog", this.state)
+        axios.get("https://borrowoofapi.herokuapp.com/api/dog", this.state)
             .then(res => {
                 console.log(res.data)
                 this.setState({ dogs: res.data })
@@ -104,7 +104,7 @@ class FormExampleFieldControl extends Component {
         return (
             <div>
                 <Form className="dogFilter">
-                    <h1 className="searchDog">Search For Your Prefect Companion</h1>
+                    <h1 className="searchDog" style={{marginLeft: '25%'}}>Search For Your Prefect Companion</h1>
                     <Form.Group widths='equal'>
                         <Form.Field className="searchBreed"control={Input} Input icon='paw' iconPosition='left' label='Breed' id='breed' placeholder='Search Breed...' onChange={this.handleChange}
                         />
@@ -201,5 +201,3 @@ class FormExampleFieldControl extends Component {
 }
 
 export default FormExampleFieldControl
-
-

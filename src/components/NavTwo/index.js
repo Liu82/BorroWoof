@@ -71,6 +71,10 @@ class DesktopContainer extends Component {
                                     Home</a>
                                 </Menu.Item>
                                 <Menu.Item as='a' className="searchTitle"><a href='/searchdog'>Search Dogs</a></Menu.Item>
+                                {loggedInName ?
+                                <Menu.Item as='a' className="searchTitle"><a href='/User'>User Profile</a></Menu.Item>
+                                : ''
+                                }
 
                                 {!loggedInName ?
                                     <Menu.Item position='right'>
@@ -99,7 +103,12 @@ class MobileContainer extends Component {
     handleSidebarHide = () => this.setState({ sidebarOpened: false })
 
     handleToggle = () => this.setState({ sidebarOpened: true })
-
+    onLogoutButtonClick = () => {
+        //back to the home page
+        localStorage.clear();
+        window.location.replace('/')
+    }
+    
     render() {
         const { children } = this.props
         const { sidebarOpened } = this.state
@@ -123,6 +132,7 @@ class MobileContainer extends Component {
                         Home
           </Menu.Item>
           <Menu.Item as='a' href='/searchdog' >Search Dogs</Menu.Item>
+          <Menu.Item as='a'><a href='/User'>User Profile</a></Menu.Item>
                 </Sidebar>
 
                 <Sidebar.Pusher dimmed={sidebarOpened}>
