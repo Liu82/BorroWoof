@@ -18,7 +18,7 @@ class Cards extends Component {
   onBookDogClick = (data) => {
     let userInfo = getLocalValues();
     if(this.state.isLoggedIn){
-      axios.post("http://localhost:3001/api/booking", {
+      axios.post("https://borrowoofapi.herokuapp.com/api/booking", {
         petId: this.props.dog._id,
         ownerId: this.props.dog.ownerId,
         userId: userInfo.userId,
@@ -59,8 +59,17 @@ render() {
             <strong>Gender: </strong>{this.props.dog.gender}<br/>
             <strong>About Me: </strong>{this.props.dog.aboutMe}<br/>
             <strong>Activity Level:</strong>{this.props.dog.activityLevel}<br/>
-            <strong>Good With....?:</strong>{this.props.dog.goodWith}<br/>
-            <strong>Availability:</strong>{this.props.dog.availability}<br/>
+            <strong>Good With....?</strong><br />{this.props.dog.goodWithPeople ? `${this.props.dog.goodWithPeople}, ` : ''}
+                      {this.props.dog.goodWithKids ? `${this.props.dog.goodWithKids}, ` : ''}
+                      {this.props.dog.goodWithOtherDogs ? this.props.dog.goodWithOtherDogs : ''}<br /> <br />
+
+                      <strong>Availability:</strong><br />{this.props.dog.availableMonday ? `${this.props.dog.availableMonday}, ` : ''}
+                      {this.props.dog.availableTuesday ? `${this.props.dog.availableTuesday}, ` : ''}
+                      {this.props.dog.availableWednesday ? `${this.props.dog.availableWednesday}, ` : ''}
+                      {this.props.dog.availableThursday ? `${this.props.dog.availableThursday}, ` : ''}
+                      {this.props.dog.availableFriday ? `${this.props.dog.availableFriday}, ` : ''}
+                      {this.props.dog.availableSaturday ? `${this.props.dog.availableSaturday}, ` : ''}
+                      {this.props.dog.availableSunday ? this.props.dog.availableSunday : ''}<br /> <br />
             </Card.Description>
           </Card.Content>
           <Card.Content extra>

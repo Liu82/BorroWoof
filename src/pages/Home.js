@@ -38,6 +38,7 @@ class Home extends Component {
             <Card.Group className centered itemsPerRow={4}>
 
                 {this.state.dogs.map((dog, index) => {
+                    console.log(dog)
                     if(index <4 ){
                         return (<DogCards dog={dog} />)
                     }

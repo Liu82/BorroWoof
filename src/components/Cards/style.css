@@ -1,5 +1,4 @@
 .dogCard{
-    border: 1px solid black;
     transition: all 0.4s ease-in-out;
     margin: 20px;
     border-radius: 5px;
@@ -15,3 +14,6 @@
     float: right;
 }
 
+.dogCard > image {
+    
+}
